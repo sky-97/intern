@@ -3,7 +3,6 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 import pandas as pd
 
-
 def main(df_a,df_b):
 	column_name='CustomerID'
 	join_type='inner'
@@ -22,7 +21,6 @@ def main(df_a,df_b):
 	
 	return df_c,df_d
 
-
 def home(request):
     if request.method == 'POST' and request.FILES['myfile'] and request.FILES['myfile_second']:
         myfile = request.FILES['myfile']
@@ -37,11 +35,6 @@ def home(request):
         	df_customers = pd.read_csv(myfile)
 
         df_join,df_sort = main(df_orders,df_customers)
-
-        # orders = df_orders[0:10].to_html(index=False)
-        # customers = df_customers[0:10].to_html(index=False)
-        # join = df_join[0:10].to_html(index=False)
-        # sort = df_sort[0:10].to_html(index=False)
 
         return render(request, 'myapp/home.html',{ 
         	'orders' : df_orders[0:10].to_html(index=False) ,
