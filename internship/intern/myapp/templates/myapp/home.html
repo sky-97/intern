@@ -30,16 +30,26 @@
         </span> -->
     </div>
     <div class="col-sm-9 col-md-6 col-lg-8" style="background-color:pink;">
+      <h3> Orders file</h3>
+      {% autoescape off %}{{ orders }}{% endautoescape %}
+      <br><br>
+      <h3>Customers file</h3>
+      {% autoescape off %}{{ customers }}{% endautoescape %}
 
       <div id="byte_range"></div>
       <div id="byte_content"></div>
 
     </div>
-    {% if myfile %}
-      {{ myfile }} <h1>something should print here</h1>
-    {% endif %}
   </div>
 </div>
+</div>
+
+<div>
+  <h3>Sorted Dataframe</h3>
+  {% autoescape off %}{{ sort }}{% endautoescape %}
+  <br>
+  <h3>Joined Dataframe</h3>
+  {% autoescape off %}{{ join }}{% endautoescape %}
 </div>
 <style>
   #byte_content {
